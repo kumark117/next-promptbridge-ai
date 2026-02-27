@@ -27,16 +27,30 @@ export default function Home() {
   };
 
   return (
-    <main style={{ maxWidth: "700px", margin: "50px auto" }}>
-      <h1>PromptBridge AI</h1>
+<main style={{ maxWidth: "800px", margin: "50px auto" }}>
+  <h1 style={{ marginBottom: "10px" }}>
+    Next PromptBridge AI
+  </h1>
 
-      <PromptForm onSubmit={handleSubmit} loading={loading} />
+  <h2 style={{ fontWeight: "normal", marginBottom: "20px" }}>
+    Secure AI Proxy Architecture using Next.js + Railway FastAPI + OpenAI
+  </h2>
 
-      {error && (
-        <p style={{ color: "red", marginTop: "10px" }}>{error}</p>
-      )}
+  <p style={{ marginBottom: "30px", lineHeight: 1.6 }}>
+    This application demonstrates a production-style AI integration
+    where the frontend does not directly call OpenAI. Instead,
+    requests are routed through a secure FastAPI backend deployed
+    on Railway, protecting API keys and enabling validation,
+    logging, and future cost tracking.
+  </p>
 
-      {result && <ResponseCard result={result.result} />}
-    </main>
+  <PromptForm onSubmit={handleSubmit} loading={loading} />
+
+  {error && (
+    <p style={{ color: "red", marginTop: "10px" }}>{error}</p>
+  )}
+
+  {result && <ResponseCard result={result.result} />}
+</main>
   );
 }
